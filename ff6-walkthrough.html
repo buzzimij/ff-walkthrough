@@ -1421,10 +1421,52 @@
     .tab-short { display: block; font-size: 11px; }
     .game-tab-subtitle { display: none; }
     .char-grid { grid-template-columns: 1fr; }
+    .job-grid { grid-template-columns: 1fr; }
 
-    .esper-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .esper-table { font-size: 12px; min-width: 520px; }
-    .esper-table th, .esper-table td { padding: 6px 8px; }
+    /* Esper table — convert to stacked card layout instead of squished columns */
+    .esper-table-wrap { overflow-x: visible; }
+    .esper-table { min-width: 0; width: 100%; font-size: 13px; }
+    .esper-table thead { display: none; }
+    .esper-table tr {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      margin-bottom: 8px;
+      padding: 8px 0 4px;
+      background: var(--bg3);
+    }
+    .esper-table td {
+      display: block;
+      padding: 3px 12px;
+      border-bottom: none;
+      line-height: 1.5;
+    }
+    .esper-table td.esper-name {
+      font-weight: 700;
+      color: var(--text-bright);
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 2px;
+    }
+    .esper-table td:not(.esper-name)::before {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      display: block;
+      margin-top: 4px;
+    }
+    .esper-table td:nth-child(2)::before { content: 'Stat Bonus'; }
+    .esper-table td:nth-child(3)::before { content: 'Spells Taught'; }
+    .esper-table td:nth-child(4)::before { content: 'Location'; }
+    .esper-table td:nth-child(5)::before { content: 'Rating'; }
+
+    /* Checklist items — stack link and tag below the text on narrow screens */
+    .cl-item { flex-wrap: wrap; }
+    .cl-text { flex-basis: calc(100% - 38px); }
+    .cl-instr-link { margin-left: 28px; }
+    .cl-tag { margin-left: 8px; }
 
     .world-header { padding: 14px 16px; gap: 10px; }
     .world-header .world-icon { font-size: 22px; }
