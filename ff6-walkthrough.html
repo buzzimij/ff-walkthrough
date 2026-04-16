@@ -1480,6 +1480,19 @@
 
     .callout { padding: 10px 12px; font-size: 13px; }
 
+    /* Steps list — switch to block layout so inline elements don't become narrow flex columns */
+    .steps li {
+      display: block;
+      padding-left: 18px;
+      position: relative;
+      font-size: 13.5px;
+    }
+    .steps li::before {
+      position: absolute;
+      left: 0;
+      top: 4px;
+    }
+
     .progress-track { width: 110px; }
 
     #goto-bookmark { bottom: 16px; right: 16px; padding: 9px 14px; font-size: 12px; }
@@ -10443,6 +10456,21 @@ document.addEventListener('DOMContentLoaded', () => {
   if (savedGame && validGames.includes(savedGame) && savedGame !== 'ff6') {
     switchGame(savedGame);
   }
+
+  // Handle broken screenshots — hide broken image icon cleanly
+  document.querySelectorAll('.ss img, .hero-bg-img').forEach(img => {
+    function onFail() {
+      const fig = img.closest('figure.ss, .hero-banner');
+      if (fig && fig.classList.contains('ss')) {
+        img.style.display = 'none';
+        fig.style.minHeight = '0';
+      } else if (fig && fig.classList.contains('hero-banner')) {
+        img.style.display = 'none'; // gradient bg shows through
+      }
+    }
+    if (img.complete && img.naturalWidth === 0) onFail();
+    else img.addEventListener('error', onFail);
+  });
 }, { once: false });
 </script>
 
