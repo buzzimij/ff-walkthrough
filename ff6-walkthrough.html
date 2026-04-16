@@ -1060,6 +1060,8 @@
   /* With 11 tabs, tighten padding and font size */
   #game-tabs { flex-wrap: nowrap; overflow-x: auto; }
   .game-tab { padding: 11px 10px; font-size: 11px; letter-spacing: .8px; flex: 1; min-width: 90px; }
+  .tab-short { display: none; }
+  .tab-full { display: block; }
   .game-tab-subtitle {
     display: block;
     font-size: 9px;
@@ -1414,7 +1416,10 @@
     .hero-title { font-size: 32px; }
     .hero-banner { min-height: 200px; }
     #game-tabs { position: relative; top: 0; }
-    .game-tab { padding: 10px 12px; font-size: 11px; }
+    .game-tab { padding: 8px 10px; font-size: 11px; min-width: 60px; }
+    .tab-full { display: none; }
+    .tab-short { display: block; font-size: 11px; }
+    .game-tab-subtitle { display: none; }
     .char-grid { grid-template-columns: 1fr; }
 
     .esper-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -1454,47 +1459,47 @@
 <!-- Game Selector Tabs -->
 <div id="game-tabs">
   <button class="game-tab" data-game="ff1" onclick="switchGame('ff1')">
-    Final Fantasy I
+    <span class="tab-full">Final Fantasy I</span><span class="tab-short">FF I</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab" data-game="ff2" onclick="switchGame('ff2')">
-    Final Fantasy II
+    <span class="tab-full">Final Fantasy II</span><span class="tab-short">FF II</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab" data-game="ff3" onclick="switchGame('ff3')">
-    Final Fantasy III
+    <span class="tab-full">Final Fantasy III</span><span class="tab-short">FF III</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab" data-game="ff4" onclick="switchGame('ff4')">
-    Final Fantasy IV
+    <span class="tab-full">Final Fantasy IV</span><span class="tab-short">FF IV</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab" data-game="ff5" onclick="switchGame('ff5')">
-    Final Fantasy V
+    <span class="tab-full">Final Fantasy V</span><span class="tab-short">FF V</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab active" data-game="ff6" onclick="switchGame('ff6')">
-    Final Fantasy VI
+    <span class="tab-full">Final Fantasy VI</span><span class="tab-short">FF VI</span>
     <span class="game-tab-subtitle">Pixel Remaster</span>
   </button>
   <button class="game-tab" data-game="ff7" onclick="switchGame('ff7')">
-    Final Fantasy VII
+    <span class="tab-full">Final Fantasy VII</span><span class="tab-short">FF VII</span>
     <span class="game-tab-subtitle">Classic · Remake</span>
   </button>
   <button class="game-tab" data-game="ff8" onclick="switchGame('ff8')">
-    Final Fantasy VIII
+    <span class="tab-full">Final Fantasy VIII</span><span class="tab-short">FF VIII</span>
     <span class="game-tab-subtitle">Remastered</span>
   </button>
   <button class="game-tab" data-game="ff9" onclick="switchGame('ff9')">
-    Final Fantasy IX
+    <span class="tab-full">Final Fantasy IX</span><span class="tab-short">FF IX</span>
     <span class="game-tab-subtitle">PC · Console</span>
   </button>
   <button class="game-tab" data-game="ff10" onclick="switchGame('ff10')">
-    Final Fantasy X
+    <span class="tab-full">Final Fantasy X</span><span class="tab-short">FF X</span>
     <span class="game-tab-subtitle">HD Remaster</span>
   </button>
   <button class="game-tab" data-game="ct" onclick="switchGame('ct')">
-    Chrono Trigger
+    <span class="tab-full">Chrono Trigger</span><span class="tab-short">Chrono</span>
     <span class="game-tab-subtitle">DS · PC · Console</span>
   </button>
 </div>
